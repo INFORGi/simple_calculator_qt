@@ -2,6 +2,19 @@
 
 echo "Начало сборки проекта"
 
+if [ -f .env ]; then
+  echo "Загрузка переменных из .env"
+  export $(grep -v '^#' .env | xargs)
+else
+  echo ".env файл не найден, пропуск"
+fi
+
+if [ -z "$PATH_VCPKG" ]; then
+  echo "Ошибка: переменная PATH_VCPKG не установлена"
+  exit 1
+fi
+
+# Сборка
 cmake --build --preset default
 build_code=$?
 
