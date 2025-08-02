@@ -1,0 +1,9 @@
+{
+  "name": "qt5test",
+  "version-string": "1.0.0",
+  "dependencies": [
+    "qt5-base",
+    "qt5-svg",
+    "qt5-tools"
+  ]
+}
